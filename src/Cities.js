@@ -1,20 +1,26 @@
-import React from 'react'
+import React from 'react';
 
+const CitiesArr = [];
+
+const getCities = async () => {
+  const api_call = await fetch('https://api.openaq.org/v1/cities');
+  const response = await api_call.json();
+
+  for(let i=0; i< response.results.length; i++)
+  CitiesArr.push(response.results[i]);
+
+  
+};
+
+getCities();
+
+console.log(CitiesArr);
 
 export const Cities = () => (
+
+  
       <div>
-        <h1>Cities List</h1>
-        <ul>
-          <li>Miasto 1</li>
-          <li>Miasto 2</li>
-          <li>Miasto 3</li>
-          <li>Miasto 4</li>
-          <li>Miasto 5</li>
-          <li>Miasto 6</li>
-          <li>Miasto 7</li>
-          <li>Miasto 8</li>
-          <li>Miasto 9</li>
-          <li>Miasto 10</li>
-        </ul>
+      for(let i=0; i<CitiesArr.length)
+        <li>{CitiesArr[i]}</li>
       </div>
     );

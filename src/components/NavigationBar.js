@@ -14,6 +14,7 @@ const Styles = styled.div`
             color: white;
         }
     }
+    
 `;
 
 export const NavigationBar = () => (
