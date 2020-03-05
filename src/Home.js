@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components';
+import {Form} from './components/Form';
 
 const Styles = styled.div`
   div {
@@ -35,8 +36,7 @@ export const Home = () => (
       <div>
         <h1>Home</h1>
         <p>Aplikacja wyszukująca 10 najbardziej zanieczyszconych miast w wybranym kraju!</p>
-        <input></input>
-        <button type="submit">Zatwierdź</button>
+        <Form />
       </div>
     </Styles>
     );

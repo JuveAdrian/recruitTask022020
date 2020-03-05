@@ -10,30 +10,37 @@ export class Cities extends Component {
       cities: []
     }
   }
-
   
   componentDidMount() {
     fetch('https://api.openaq.org/v1/cities')
-      .then(response => response.json())
-      .then(cities => {
-        
-        this.setState({cities: cities.results})
-      })
-      .then( console.log(this.state.cities))
-      .catch(err => console.log('Error:', err));
+      .then(response => {
+        response.json()
+      }).then(data => {
+        let cities = data.results.map((city) => {
+          return(
+            <div key={city.name}>
+              <p>{city.name}</p>
+            </div>
+          )
+        })
+        this.setState({cities: cities});
+      }).catch(err => console.log('Error:', err));
   }
 
   render() {
-    const items = this.state.cities.map((item, key) =>
-        <li>{item.name}</li>
-    );
-
-    return {
+    return (
+      <div>
+        <p>Lista miast:</p>
+        <h1>{this.state.cities}</h1>   
+     
+      </div>
       
-    }
-    
-};
-};
+    );
+  }
+
+}
+
+
 
 /*const CitiesArr = [];
  <ul>
