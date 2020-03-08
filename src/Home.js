@@ -29,7 +29,14 @@ const Styles = styled.div`
     margin-right: 25px;
     margin-top: 30px;
   }
-    
+
+  details > summary::-webkit-details-marker {
+  display: none;
+  }
+
+  summary {
+    color: red;
+  }  
 `;
 export const Home = () => (
   <Styles>
